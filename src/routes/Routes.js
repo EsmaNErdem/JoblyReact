@@ -9,7 +9,7 @@ import LoginForm from "../auth/LoginForm";
 import SignUpFormForm from "../auth/SignUpForm";
 import ProfileForm from "../profile/ProfileForm";
 
-const Routes = () => {
+const Routes = ({ login, signup }) => {
   return (
     <Switch>
       <Route exact path="/">
@@ -28,10 +28,10 @@ const Routes = () => {
         <ProfileForm />
       </Route>
       <Route exact path="/login">
-        <LoginForm />
+        <LoginForm login={login} />
       </Route>
       <Route exact path="/signup">
-        <SignUpFormForm />
+        <SignUpFormForm signup={signup} />
       </Route>
     </Switch>
   );

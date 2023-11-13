@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../utilities/Loading";
 import JoblyApi from "../api/api";
 import JobDisplayList from "../jobs/JobDisplayList"
+
 /**
  * Displays company detail and open position in the company
  * 
@@ -36,7 +37,7 @@ const CompanyDetail = () => {
         <div className="CompanyDetail">
             <h1>{company.name}</h1>
             <p>{company.description}</p>
-            <JobDisplayList jobs = {company.jobs}/>
+            <JobDisplayList jobs = {company.jobs} />
         </div>
     )
 }

@@ -65,50 +65,44 @@ class JoblyApi {
   // Send post request to register a user, return token
 
   static async registerUser(data) {
-    const res = await this.request(`/auth/register`, data, "post")
-    this.token =  res.token;
+    const res = await this.request(`auth/register`, data, "post")
     return res.token;
   }
 
   // Send post request to login user, return token
 
   static async loginUser(data) {
-    const res = await this.request(`/auth/token`, data, "post")
-    this.token =  res.token;
+    const res = await this.request(`auth/token`, data, "post")
     return res.token;
   }
 
   // Get details on a user
 
-  static async getUser(username, token) {
-    this.token = token
+  static async getUser(username) {
     const res = await this.request(`/users/${username}`)
     return res.user;
   }
 
   // Send patch request to update user
 
-  static async updateUser(username, data, token) {
-    this.token = token
+  static async updateUser(username, data) {
     const res = await this.request(`/users/${username}`, data, "patch")
     return res.user;
   }
 
   // Send post request to send user job application by username and job id
 
-  static async sendUserAplication(username, id, token) {
-    this.token = token
+  static async sendUserAplication(username, id) {
     const res = await this.request(`/users/${username}/jobs/${id}`, "post")
     return res.applied;
   }
 
     // Send delete request to update user
 
-    static async deleteUserAplication(username, id, token) {
-      this.token = token
-      const res = await this.request(`/users/${username}/jobs/${id}`, "delete")
-      return res.unapplied;
-    }
+  static async deleteUserAplication(username, id) {
+    const res = await this.request(`/users/${username}/jobs/${id}`, "delete")
+    return res.unapplied;
+  }
 
 }
 

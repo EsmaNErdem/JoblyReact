@@ -23,11 +23,10 @@ const CompanyList = () => {
         getCompanies()
     }, []);
         
-    // Retrieves a list of companies from the JoblyApi.
+    // Retrieves a list of companies from the JoblyApi by sending entered query parameter data.
     // API call is triggered when component mounts and search form submits. 
       const getCompanies = async (data) => {
         try {
-            console.log(data)
             const companies = await JoblyApi.getAllCompanies(data)
             setCompanies(companies)
 

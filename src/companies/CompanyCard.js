@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 /**
  * Show short info about a company
  * 
@@ -6,6 +7,7 @@ import { Link } from "react-router-dom";
  * - CompanyList ==> CompanyCard
  * 
  */
+
 const CompanyCard = ({handle, name, description, logoUrl}) => {
 
     return (
@@ -18,7 +20,6 @@ const CompanyCard = ({handle, name, description, logoUrl}) => {
                 <p>{description}</p>
             </div>
         </Link>
-        
     )
 }
 

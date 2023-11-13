@@ -23,13 +23,15 @@ const SearchBox = ({job=null, company=null, search}) => {
         if (formData.title) formData.title = formData.title.trim()
         search(formData || undefined)
     }
-
+    
+    // Handles changes in form inputs and updates the component's state accordingly.
+    // if it is checkbox input, it becomes "true" string for query parameter in API call
+    // for other inputs, turn empty string into undefined or setFormDate with given value
     const handleChange = e => {
-        const { name, value } = e.target
-
+        const { name, value, type, checked } = e.target
         setFormData(data => ({
             ...data,
-            [name] : value || undefined
+            [name] : type === 'checkbox' ? `${checked}` : value || undefined
         }))
     }
 
@@ -59,8 +61,7 @@ const SearchBox = ({job=null, company=null, search}) => {
                             id="maxEmployees"
                             name="maxEmployees"
                             type="number"
-                            min="0"
-                            value={formData.maxEmloyees || ""}
+                            value={formData.maxEmployees || ""}
                             onChange={handleChange}
                         />
                     </>
@@ -74,23 +75,22 @@ const SearchBox = ({job=null, company=null, search}) => {
                             name="minSalary"
                             type="number"
                             min="0"
-                            value={formData.minSalary}
+                            value={formData.minSalary || ""}
                             onChange={handleChange}
 
                         />
-                        <label htmlFor="equity">Equity</label>
+                        <label htmlFor="hasEquity">Has Equity</label>
                         <input
-                            id="equity"
-                            name="equity"
-                            type="checked"
-                            value={formData.equity}
+                            id="hasEquity"
+                            name="hasEquity"
+                            type="checkbox"
+                            value={formData.equity || false}
                             onChange={handleChange}
                         />
                     </>
                 }
                 <button>Search</button>
             </form>
-
         </div>
     )
 }
