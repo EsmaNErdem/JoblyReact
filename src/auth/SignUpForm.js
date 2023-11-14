@@ -3,6 +3,21 @@ import { useHistory } from "react-router-dom";
 import Alert from "../utilities/Alert";
 import "./SignUpForm.css"
 
+/**
+ * SignUpForm Component
+ * Displays form and renders controlled components functionality
+ * 
+ * A form component for user registration. Handles user input for username, password, first name, last name, and email.
+ * Displays form errors if registration fails.
+ * On submission:
+ * - calls signup function prop
+ * - redirects to / route
+ *
+ * Routes ==> SignupForm ==> Alert
+ * Routed as /signup
+ * 
+ */
+
 const SignUpForm = ({ signup }) => {
     const history = useHistory();
     const INITIAL_STATE = {
@@ -21,7 +36,11 @@ const SignUpForm = ({ signup }) => {
         "formData=", formData,
         "formErrors=", formErrors,
     );
-  
+
+    /**
+     * Handles form submission. Calls the signup function with the form data.
+     * Redirects to the home page upon successful registration, or displays form errors.
+     */
     const handleSubmit = async e => {
         e.preventDefault();
         const result =  await signup(formData)
@@ -32,6 +51,7 @@ const SignUpForm = ({ signup }) => {
         }
     }
 
+    /** Update form data field */
     const handleChange = e => {
         const { name, value } = e.target
         setFormData(data => ({

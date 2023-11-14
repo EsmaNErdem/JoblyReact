@@ -2,6 +2,21 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "../utilities/Alert";
 
+/**
+ * LoginForm Component
+ * Displays form and renders controlled components functionality
+ * 
+ * A form component for user login. Handles user input for username, password.
+ * Displays form errors if registration fails.
+ * On submission:
+ * - calls login function prop
+ * - redirects to / route
+ *
+ * Routes ==> LoginForm ==> Alert
+ * Routed as /login6
+ * 
+ */
+
 const LoginForm = ({ login }) => {
     const history = useHistory();
     const INITIAL_STATE = {
@@ -18,6 +33,10 @@ const LoginForm = ({ login }) => {
         "formErrors=", formErrors,
     );
   
+    /**
+     * Handles form submission. Calls the login function with the form data.
+     * Redirects to the home page upon successful registration, or displays form errors.
+     */
     const handleSubmit = async e => {
         e.preventDefault();
         const result = await login(formData)
@@ -27,7 +46,8 @@ const LoginForm = ({ login }) => {
             setFormErrors(result.error)
         }
     }
-
+    
+    /** Update form data field */
     const handleChange = e => {
         const { name, value } = e.target
         setFormData(data => ({

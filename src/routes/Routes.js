@@ -1,6 +1,7 @@
 // Routes.js
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
 import Home from "../homepage/Home";
 import CompanyList from "../companies/CompanyList"
 import CompanyDetail from "../companies/CompanyDetail";
@@ -12,27 +13,35 @@ import ProfileForm from "../profile/ProfileForm";
 const Routes = ({ login, signup }) => {
   return (
     <Switch>
+
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/companies">
+
+      <ProtectedRoute exact path="/companies">
         <CompanyList />
-      </Route>
-      <Route path="/companies/:handle">
+      </ProtectedRoute>
+
+      <ProtectedRoute path="/companies/:handle">
         <CompanyDetail />
-      </Route>
-      <Route exact path="/jobs">
+      </ProtectedRoute>
+
+      <ProtectedRoute exact path="/jobs">
         <JobList />
-      </Route>
-      <Route exact path="/profile">
+      </ProtectedRoute>
+      
+      <ProtectedRoute exact path="/profile">
         <ProfileForm />
-      </Route>
+      </ProtectedRoute>
+      
       <Route exact path="/login">
         <LoginForm login={login} />
       </Route>
+
       <Route exact path="/signup">
         <SignUpFormForm signup={signup} />
       </Route>
+      
     </Switch>
   );
 };

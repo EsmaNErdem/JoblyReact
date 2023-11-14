@@ -79,36 +79,32 @@ class JoblyApi {
   // Get details on a user
 
   static async getUser(username) {
-    const res = await this.request(`/users/${username}`)
+    const res = await this.request(`users/${username}`)
     return res.user;
   }
 
   // Send patch request to update user
 
   static async updateUser(username, data) {
-    const res = await this.request(`/users/${username}`, data, "patch")
+    const res = await this.request(`users/${username}`, data, "patch")
     return res.user;
   }
 
   // Send post request to send user job application by username and job id
 
   static async sendUserAplication(username, id) {
-    const res = await this.request(`/users/${username}/jobs/${id}`, "post")
+    const res = await this.request(`users/${username}/jobs/${id}`, "post")
     return res.applied;
   }
 
     // Send delete request to update user
 
   static async deleteUserAplication(username, id) {
-    const res = await this.request(`/users/${username}/jobs/${id}`, "delete")
+    const res = await this.request(`users/${username}/jobs/${id}`, "delete")
     return res.unapplied;
   }
 
 }
 
 // for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
-
 export default JoblyApi
