@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders and matches with snaphot 1`] = `
+<DocumentFragment>
+  <div
+    class="SignUpForm"
+  >
+    <form>
+      <label
+        for="username"
+      >
+        Username
+      </label>
+      <input
+        id="username"
+        name="username"
+        placeholder="Username"
+        value=""
+      />
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        name="password"
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <button>
+        Submit
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

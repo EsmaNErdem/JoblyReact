@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders and matches with snaphot 1`] = `
+<DocumentFragment>
+  <div
+    class="NavBar"
+  >
+    <nav
+      class="navbar navbar-expand-md"
+    >
+      <div
+        class="container-fluid"
+      >
+        <a
+          class="navbar-brand"
+          href="/"
+        >
+          Jobly
+        </a>
+        <ul
+          class="ml-auto navbar-nav"
+        >
+          <a
+            class="nav-link"
+            href="/companies"
+          >
+            Companies
+          </a>
+          <a
+            class="nav-link"
+            href="/jobs"
+          >
+            Jobs
+          </a>
+          <a
+            class="nav-link"
+            href="/profile"
+          >
+            Profile
+          </a>
+          <a
+            class="nav-link"
+            href="/"
+          >
+            Log Out testuser
+          </a>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`it renders and matches with snaphot while loggedin user 1`] = `
+<DocumentFragment>
+  <div
+    class="NavBar"
+  >
+    <nav
+      class="navbar navbar-expand-md"
+    >
+      <div
+        class="container-fluid"
+      >
+        <a
+          class="navbar-brand"
+          href="/"
+        >
+          Jobly
+        </a>
+        <ul
+          class="ml-auto navbar-nav"
+        >
+          <a
+            class="nav-link"
+            href="/companies"
+          >
+            Companies
+          </a>
+          <a
+            class="nav-link"
+            href="/jobs"
+          >
+            Jobs
+          </a>
+          <a
+            class="nav-link"
+            href="/profile"
+          >
+            Profile
+          </a>
+          <a
+            class="nav-link"
+            href="/"
+          >
+            Log Out testuser
+          </a>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`it renders and matches with snaphot while no user loggedin 1`] = `
+<DocumentFragment>
+  <div
+    class="NavBar"
+  >
+    <nav
+      class="navbar navbar-expand-md"
+    >
+      <div
+        class="container-fluid"
+      >
+        <a
+          class="navbar-brand"
+          href="/"
+        >
+          Jobly
+        </a>
+        <ul
+          class="ml-auto navbar-nav"
+        >
+          <a
+            class="nav-link"
+            href="/login"
+          >
+            Login
+          </a>
+          <a
+            class="nav-link"
+            href="/signup"
+          >
+            Sign Up
+          </a>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;

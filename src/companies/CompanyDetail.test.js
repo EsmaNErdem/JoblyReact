@@ -6,22 +6,26 @@ import JoblyApi from '../__mocks__/api';
 jest.mock('../api');
 afterEach(cleanup);
 
-test("renders without crashing", () => {
-    render(
-    <MemoryRouter >
-        <CompanyDetail />
-    </MemoryRouter>
-    );
+test("renders without crashing", async () => {
+    await act(async () => {
+        render(
+            <MemoryRouter >
+                <CompanyDetail />
+            </MemoryRouter>
+            );
+    });        
 });
 
-// test("it renders and matches with snaphot", () => {
-//     const { asFragment } = render(
-//         <MemoryRouter >
-//             <CompanyDetail />
-//         </MemoryRouter>
-//     );
-//     expect(asFragment()).toMatchSnapshot();
-// });
+test("it renders and matches with snaphot", async () => {
+    await act(async () => {
+        ({ asFragment } = render(
+            <MemoryRouter >
+                <CompanyDetail />
+            </MemoryRouter>
+        ))
+    });
+    expect(asFragment()).toMatchSnapshot();
+});
 
 // test("it renders mock API call and displays data", async () => {
 //     JoblyApi.getCompany.mockResolvedValueOnce({ company: {
@@ -40,7 +44,9 @@ test("renders without crashing", () => {
 //     await act(async () => {
 //         ({ getByTestId } = render(
 //             <MemoryRouter initialEntries={[`/companies/${mockHandle}`]}>
-//                 <CompanyDetail />
+//                 <UserProvider>
+//                     <CompanyDetail />
+//                 </UserProvider>
 //             </MemoryRouter>
 //         ));
 //     });
@@ -51,11 +57,12 @@ test("renders without crashing", () => {
 //     //     </MemoryRouter>
 //     // );
   
-//     expect(getByTestId("loading")).toHaveTextContent("Loading");
+//     // expect(getByTestId("loading")).toHaveTextContent("Loading");
   
 //     // You can also use act to wait for the asynchronous operations to complete
 //     await waitFor(() => {
 //       // Your assertion related to the API call
+//       expect(getByTestId("company-name")).toHaveTextContent("C1");
 //       expect(JoblyApi.getCompany).toHaveBeenCalledTimes(1);
 //     });
   

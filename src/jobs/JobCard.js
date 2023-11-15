@@ -29,8 +29,8 @@ const JobCard = ({ id, title, salary, equity, company }) => {
 
     return (
         <div className="JobCard">
-            <h2>{title}</h2>
-            <h3>{company}</h3>
+            <h2 data-testid="job-title">{title}</h2>
+            <h3 data-testid="company-name">{company}</h3>
             {salary && <p>Salary: ${addCommas(salary)}</p>}
             {equity && <p>Equity: {equity}</p>}
             <button 

@@ -12,6 +12,21 @@ import Loading from "./utilities/Loading";
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_STORAGE_ID = "jobly-token";
 
+
+/**
+ * Jobly Application
+ * 
+ * - Displays loader while pulling user data
+ * 
+ * - currenUser is user obj pulled from the backend
+ *  if user loggedin, it share user date through out app wiht useContext
+ *  saves user data into localStorage so when page refereshes, user stay consistent
+ * 
+ * - Manages signup and login API function and their return values token to provide user date flow with context
+ * - Makes API call to user job application
+ * 
+ */
+
 const App = () => {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useLocalStorage(TOKEN_STORAGE_ID);

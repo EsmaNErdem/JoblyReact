@@ -38,7 +38,9 @@ const SearchBox = ({job=null, company=null, search}) => {
     return (
         <div className="SearchBox">
             <form onSubmit={handleSubmit}>
+                <label htmlFor="search">{company ? "Name" : "Title"}</label>
                 <input 
+                    id="search"
                     name={company ? "name" : "title"}
                     type="search"
                     value={company ? (formData.name || "") : (formData.title || "")}

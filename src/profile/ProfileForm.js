@@ -104,7 +104,7 @@ const ProfileForm = () => {
                 }
 
                 {message
-                    ? <Alert type="success" messages={"Updated profile!"} />
+                    ? <Alert type="success" messages={["Updated profile!"]} />
                     : null
                 }
                 <button>Save Changes</button>

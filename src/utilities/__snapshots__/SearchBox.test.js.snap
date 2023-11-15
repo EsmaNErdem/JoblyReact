@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders and matches with snaphot 1`] = `
+<DocumentFragment>
+  <div
+    class="SearchBox"
+  >
+    <form>
+      <label
+        for="search"
+      >
+        Name
+      </label>
+      <input
+        id="search"
+        name="name"
+        placeholder="name"
+        type="search"
+        value=""
+      />
+      <label
+        for="minEmployees"
+      >
+        Min Employees
+      </label>
+      <input
+        id="minEmployees"
+        min="0"
+        name="minEmployees"
+        type="number"
+        value=""
+      />
+      <label
+        for="maxEmployees"
+      >
+        Max Employees
+      </label>
+      <input
+        id="maxEmployees"
+        name="maxEmployees"
+        type="number"
+        value=""
+      />
+      <button>
+        Search
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`it renders and matches with snaphot 2`] = `
+<DocumentFragment>
+  <div
+    class="SearchBox"
+  >
+    <form>
+      <label
+        for="search"
+      >
+        Title
+      </label>
+      <input
+        id="search"
+        name="title"
+        placeholder="title"
+        type="search"
+        value=""
+      />
+      <label
+        for="minSalary"
+      >
+        Min Salary
+      </label>
+      <input
+        id="minSalary"
+        min="0"
+        name="minSalary"
+        type="number"
+        value=""
+      />
+      <label
+        for="hasEquity"
+      >
+        Has Equity
+      </label>
+      <input
+        id="hasEquity"
+        name="hasEquity"
+        type="checkbox"
+        value="false"
+      />
+      <button>
+        Search
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

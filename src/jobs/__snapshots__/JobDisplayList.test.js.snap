@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders and matches with snaphot 1`] = `
+<DocumentFragment>
+  <div
+    class="JobDisplayList"
+  >
+    <div
+      class="JobCard"
+    >
+      <h2
+        data-testid="job-title"
+      >
+        J1
+      </h2>
+      <h3
+        data-testid="company-name"
+      >
+        C1
+      </h3>
+      <p>
+        Salary: $1
+      </p>
+      <p>
+        Equity: 0.1
+      </p>
+      <button>
+        APPLY
+      </button>
+    </div>
+    <div
+      class="JobCard"
+    >
+      <h2
+        data-testid="job-title"
+      >
+        J2
+      </h2>
+      <h3
+        data-testid="company-name"
+      >
+        C2
+      </h3>
+      <p>
+        Salary: $2
+      </p>
+      <p>
+        Equity: 0.2
+      </p>
+      <button>
+        APPLY
+      </button>
+    </div>
+    <div
+      class="JobCard"
+    >
+      <h2
+        data-testid="job-title"
+      >
+        J3
+      </h2>
+      <h3
+        data-testid="company-name"
+      >
+        C1
+      </h3>
+      <p>
+        Salary: $300,000
+      </p>
+      <button>
+        APPLY
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

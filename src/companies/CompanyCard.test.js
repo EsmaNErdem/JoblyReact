@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import CompanyCard from "./CompanyCard";
 import { MemoryRouter } from "react-router";
 
-it("matches snapshot with logo", function () {
+test("matches snapshot with logo", function () {
   const { asFragment } = render(
       <MemoryRouter>
         <CompanyCard
@@ -17,7 +17,7 @@ it("matches snapshot with logo", function () {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it("matches snapshot without logo", function () {
+test("matches snapshot without logo", function () {
   const { asFragment } = render(
       <MemoryRouter>
         <CompanyCard
@@ -30,3 +30,18 @@ it("matches snapshot without logo", function () {
   );
   expect(asFragment()).toMatchSnapshot();
 });
+
+test("Displays data about a company", function () {
+  const { getByTestId } = render(
+      <MemoryRouter>
+        <CompanyCard
+            handle="test"
+            name="Test"
+            description="testing 1, 2, 3..."
+            logo_url=""
+        />
+      </MemoryRouter>,
+  );
+  expect(getByTestId("company-name")).toHaveTextContent("Test");
+});
+

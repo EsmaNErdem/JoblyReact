@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders and matches with snaphot 1`] = `
+<DocumentFragment>
+  <div
+    class="Alert, Alert-success"
+  >
+    <p>
+      Test-success
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`it renders and matches with snaphot 2`] = `
+<DocumentFragment>
+  <div
+    class="Alert, Alert-danger"
+  >
+    <p>
+      Test-danger
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`it renders and matches with snaphot 3`] = `
+<DocumentFragment>
+  <div
+    class="Alert, Alert-danger"
+  >
+    <p>
+      hello
+    </p>
+  </div>
+</DocumentFragment>
+`;
