@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import UserContext from "../auth/UserContext";
-import JoblyApi from "../api/api";
+import JoblyApi from "../api";
 import Alert from "../utilities/Alert";
 
 /**
@@ -45,15 +45,16 @@ const ProfileForm = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         let updatedUser;
+        
         try {
             updatedUser =  await JoblyApi.updateUser(currentUser.username, formData)
         } catch (e) {
             setFormErrors(e)
         }
-        updatedUser.applications = currentUser.applications
+
         setFormErrors([])
         setMessage(true)
-        setCurrentUser(updatedUser)
+        setCurrentUser(u => ({...u, updatedUser}))
     }
 
     /** Update form data field */

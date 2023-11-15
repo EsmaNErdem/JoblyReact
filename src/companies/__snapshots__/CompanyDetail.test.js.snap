@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders and matches with snaphot 1`] = `
+<DocumentFragment>
+  <div
+    class="Loading"
+  >
+    <h1
+      data-testid="loading"
+    >
+      Loading
+    </h1>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders and matches with snaphot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="NavBar"
+    >
+      <nav
+        class="navbar navbar-expand-md"
+      >
+        <div
+          class="container-fluid"
+        >
+          <a
+            class="navbar-brand"
+            href="/"
+          >
+            Jobly
+          </a>
+          <ul
+            class="ml-auto navbar-nav"
+          >
+            <a
+              class="nav-link"
+              href="/login"
+            >
+              Login
+            </a>
+            <a
+              class="nav-link"
+              href="/signup"
+            >
+              Sign Up
+            </a>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="Home"
+    >
+      <h1>
+        Jobly
+      </h1>
+      <p>
+        Find yourself a job
+      </p>
+      <p>
+        <a
+          href="/login"
+        >
+          Login
+        </a>
+        <a
+          href="/signup"
+        >
+          Sign Up
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

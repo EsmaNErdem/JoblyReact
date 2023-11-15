@@ -13,7 +13,7 @@ const CompanyCard = ({handle, name, description, logoUrl}) => {
     return (
         <Link to={`/companies/${handle}`} className="CompanyCard">
             <div >
-                <h2>
+                <h2 data-testid="company-name">
                     {name}
                     {/* {logoUrl && <img alt={name} src={logoUrl}/>} */}
                 </h2>

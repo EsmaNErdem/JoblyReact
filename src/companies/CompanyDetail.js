@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../utilities/Loading";
-import JoblyApi from "../api/api";
+import JoblyApi from "../api";
 import JobDisplayList from "../jobs/JobDisplayList"
 
 /**
@@ -35,7 +35,7 @@ const CompanyDetail = () => {
 
     return (
         <div className="CompanyDetail">
-            <h1>{company.name}</h1>
+            <h1 data-testid="company-name">{company.name}</h1>
             <p>{company.description}</p>
             <JobDisplayList jobs = {company.jobs} />
         </div>

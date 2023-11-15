@@ -5,7 +5,7 @@ import './App.css';
 import Routes from "./routes/Routes";
 import NavBar from "./routes/NavBar";
 import UserContext from "./auth/UserContext";
-import JoblyApi from "./api/api";
+import JoblyApi from "./api";
 import Loading from "./utilities/Loading";
 // import jwt from "jsonwebtoken";
 
@@ -16,7 +16,7 @@ const App = () => {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useLocalStorage(TOKEN_STORAGE_ID);
   const [currentUser, setCurrentUser] = useState(null)
-  console.log(currentUser, "APP")
+  const [applications, setApplications] = useState(new Set([]))
   /**
    * Load user data from API, runs when user signup or login and get a token
    * only rerun when a user logs out, so the user state is a dependency for this effect
@@ -30,7 +30,7 @@ const App = () => {
           // get datat on the curretn user
           const currentUser = await JoblyApi.getUser(user.username)
           setCurrentUser(currentUser)
-          console.log(currentUser)
+          setApplications(new Set(currentUser.applications))
         } catch (e) {
           console.error(e)
           setCurrentUser(null)
@@ -75,12 +75,28 @@ const App = () => {
     setUser(null)
   }
 
+  /**searching through applications set to find if job has been applied before, Set.has() returns false or true is O(1) */
+  const hasApplied = (id) => {
+    return applications.has(id)
+  }
+
+/** Send user job application, check if it is already applied, update applications state */
+  const applyJob = async (id) => {
+    if(hasApplied(id)) return
+    try{
+      const jobId = await JoblyApi.sendUserAplication(currentUser.username, id)
+      setApplications(a => new Set([...a, jobId]))
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   if(loading) return <Loading />;
 
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <UserContext.Provider value={{ currentUser, setCurrentUser, hasApplied, applyJob }}>
           <NavBar logOut={logOut} />
           <Routes login={login} signup={signup}/>
         </UserContext.Provider>

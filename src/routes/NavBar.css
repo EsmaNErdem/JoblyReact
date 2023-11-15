@@ -1,0 +1,52 @@
+.NavBar {
+    margin-bottom: 25px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 10px 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NavBar a {
+    color: #333;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.NavBar a:hover {
+    color: yellowgreen;
+}
+
+.NavBar a.active {
+    font-weight: bold;
+    color: teal;
+}
+
+.NavbarBrand {
+    font-size: 1.5rem;
+    color: yellowgreen;
+    margin-right: 20px;
+}
+
+.NavBar .ml-auto {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .NavBar a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .NavBar .ml-auto {
+        margin-top: 10px;
+    }
+}

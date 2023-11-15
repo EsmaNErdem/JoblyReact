@@ -1,4 +1,5 @@
-import JoblyApi from "../api/api";
+import React, { useContext, useState, useEffect } from "react";
+import UserContext from "../auth/UserContext";
 
 /**
  * Show short info about a job
@@ -10,15 +11,20 @@ import JoblyApi from "../api/api";
  */
 
 const JobCard = ({ id, title, salary, equity, company }) => {
-    
-    // Send application with username and job id and updates user's applicationId state
-    const  apply = async (username) => {
-        try{
-            const appliedJobId = await JoblyApi.sendUserAplication(username, id)
-            // setApplicationIds(new Set([...applicationIds, id]))
-        } catch (e) {
-            console.debug(e)
-        }
+    const { hasApplied, applyJob } = useContext(UserContext);
+    const [applied, setApplied] = useState()
+
+    /**By using the useEffect, the applied status is only recalculated when the id or the hasAppliedToJob function changes, avoiding unnecessary recalculations on every render.  */
+    useEffect(() => {
+        console.debug("JobCard useEffect, id=", id)
+
+        setApplied(hasApplied(id))
+    }, [id, hasApplied])
+
+    const handleApply = () =>{
+        if(hasApplied(id)) return
+        applyJob(id)
+        setApplied(true)
     }
 
     return (
@@ -27,7 +33,12 @@ const JobCard = ({ id, title, salary, equity, company }) => {
             <h3>{company}</h3>
             {salary && <p>Salary: ${addCommas(salary)}</p>}
             {equity && <p>Equity: {equity}</p>}
-            <button onClick={apply}> { /*applicationIds.has(id) ? "APPLIED" : "APPLY"*/}apply </button>
+            <button 
+                onClick={handleApply}
+                disabled={applied}
+            > 
+                { applied ? "APPLIED" : "APPLY"}
+            </button>
         </div>
     )
 }

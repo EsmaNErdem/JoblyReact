@@ -93,7 +93,7 @@ class JoblyApi {
   // Send post request to send user job application by username and job id
 
   static async sendUserAplication(username, id) {
-    const res = await this.request(`users/${username}/jobs/${id}`, "post")
+    const res = await this.request(`users/${username}/jobs/${id}`, {}, "post")
     return res.applied;
   }
 

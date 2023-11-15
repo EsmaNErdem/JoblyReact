@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./NavBar.css";
 import { NavLink, Link } from "react-router-dom";
-import { Navbar, Nav, NavItem, NavbarBrand } from "reactstrap";
+import { Navbar, Nav, NavbarBrand } from "reactstrap";
 import UserContext from "../auth/UserContext";
 
 /**
@@ -12,49 +12,35 @@ import UserContext from "../auth/UserContext";
  * Rendered by App
  * 
  */
-
 const NavBar = ({ logOut }) => {
     const { currentUser } = useContext(UserContext);
 
     const loggedInNavbar = () => (
-        <>  
-            <NavItem>
-                <NavLink to="/companies">Companies</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink to="/jobs">Jobs</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink to="/profile">Profile</NavLink>
-            </NavItem>
-            <NavItem>
-                <Link to="/" onClick={logOut}>Log Out</Link>
-            </NavItem>
+        <>
+            <NavLink className="nav-link" to="/companies">Companies</NavLink>
+            <NavLink className="nav-link" to="/jobs">Jobs</NavLink>
+            <NavLink className="nav-link" to="/profile">Profile</NavLink>
+            <Link className="nav-link" to="/" onClick={logOut}>Log Out {currentUser.username}</Link>
         </>
-    )
+    );
 
     const loggedOutNavbar = () => (
         <>
-            <NavItem>
-                <NavLink to="/login">Login</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink to="/signup">Sing Up</NavLink>
-            </NavItem>
+            <NavLink className="nav-link" to="/login">Login</NavLink>
+            <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
         </>
-    )
-    
+    );
+
     return (
-        <div className="Navbar">
+        <div className="NavBar">
             <Navbar expand="md">
                 <NavbarBrand href="/">Jobly</NavbarBrand>
                 <Nav className="ml-auto" navbar>
-                  {currentUser ? loggedInNavbar() : loggedOutNavbar()}
+                    {currentUser ? loggedInNavbar() : loggedOutNavbar()}
                 </Nav>              
             </Navbar>
-
         </div>
-    )
+    );
 }
 
 export default NavBar;

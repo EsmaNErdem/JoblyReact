@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('./api');
+
+test('renders without crashing', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+});
+
+test("it renders and matches with snaphot", () => {
+    const { asFragment } = render(<App />);
+
+    expect(asFragment()).toMatchSnapshot();
 });
