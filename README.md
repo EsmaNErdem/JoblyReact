@@ -1,6 +1,6 @@
 # Jobly React Application
 
-Jobly is a React-based frontend application that interacts with the Jobly backend, providing a platform for users to explore companies and job listings. The backend is built on Express and can be found in the [express-jobly repository](https://github.com/yourusername/express-jobly).
+Jobly is a React-based frontend application that interacts with the Jobly backend, providing a platform for users to explore companies and job listings. The backend is built on Express and can be found in the [express-jobly repository](https://github.com/EsmaNErdem/jobly).
 
 ## Setup
 1. Clone the repository.

@@ -39,6 +39,7 @@ test("it renders and matches with snaphot", async () => {
 //         { id: 2, title: "J3", equity: null, salary: 3, companyName: "C1" },
 //       ],
 //     }});
+//     // getCompany is async, retutn a promise and let it resolve
 //     const mockHandle = "c1"
 
 //     await act(async () => {
